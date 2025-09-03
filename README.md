@@ -1,5 +1,5 @@
 # Chart My Friends
-## Myers-Briggs Compatibility Chart
+### Myers-Briggs Compatibility Chart
 An interactive web app for visualizing Myers–Briggs personality types and calculating compatibility between friends. Instead of only using the classic 4-letter MBTI type, this app lets users input their percentage breakdown for each personality trait (I/E, N/S, T/F, J/P). The app then charts the user’s personality profile, compares it against their friends’, and generates compatibility scores.
 
 ✨ Features
