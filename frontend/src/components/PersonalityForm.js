@@ -7,8 +7,24 @@ const PersonalityForm = () => {
   const [thinking, setThinking] = useState(50);
   const [judging, setJudging] = useState(50);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      name,
+      introvert,
+      extrovert: 100 - introvert,
+      intuitive,
+      sensing: 100 - intuitive,
+      thinking,
+      feeling: 100 - thinking,
+      judging,
+      perceiving: 100 - judging,
+    };
+    console.log("Form data:", formData);
+  };
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <h2>Personality Form</h2>
       <label>
         Your Name:
@@ -75,7 +91,9 @@ const PersonalityForm = () => {
         </label>
         <p>Perceiving: {100 - judging}%</p>
       </div>
-    </div>
+
+      <button type="submit">Create Profile</button>
+    </form>
   );
 };
 
