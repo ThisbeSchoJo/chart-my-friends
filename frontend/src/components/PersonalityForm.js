@@ -7,7 +7,7 @@ const PersonalityForm = () => {
   const [thinking, setThinking] = useState(50);
   const [judging, setJudging] = useState(50);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
       name,
@@ -20,7 +20,25 @@ const PersonalityForm = () => {
       judging,
       perceiving: 100 - judging,
     };
-    console.log("Form data:", formData);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/personality", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Success:", result);
+      } else {
+        console.error("Error:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error sending data:", error);
+    }
   };
 
   return (
